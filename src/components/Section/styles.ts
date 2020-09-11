@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {FaDropbox} from 'react-icons/fa';
 
 export const Container = styled.div`
   --padding-top: 100px;
@@ -40,6 +41,61 @@ export const Container = styled.div`
     }
   }
   background: var(--bg-color);
+  position: relative;
+`;
+
+export const DropBoxLogo = styled(FaDropbox)`
+  width: 36px;
+  height: 32px;
+  fill: var(--logo-color);
+`;
+export const Header = styled.header`
+  z-index: 3;
+  background: var(--bg-color);
+  
+  display: flex;
+  justify-content: space-between;
+  
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  
+  >h1 {
+    display: flex;
+    align-items: center;
+    
+    >span {
+      color: var(--text-color);
+      margin-left: 20px;
+      font-size: 29px;
+    }
+  }
+  > button {
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    
+    &:hover, &focus {
+      text-decoration: underline;
+    }
+  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+`;
+
+export const HeaderWhapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  clip: rect(auto,auto,auto,auto);
 `;
 
 export const Content = styled.div`
@@ -61,5 +117,5 @@ export const Content = styled.div`
   }
   
   padding: var(--padding-top) 32px var(--padding-bottom);
-  
 `;
+
