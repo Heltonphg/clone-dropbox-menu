@@ -1,6 +1,12 @@
 import React from 'react';
 
-import {Container, Content, DropBoxLogo, Header, HeaderWhapper} from './styles'
+import {
+    Container,
+    HeaderWrapper,
+    Header,
+    DropboxLogo,
+    Content,
+} from './styles';
 
 interface Props {
     variant: 'blue' | 'beige' | 'white' | 'black';
@@ -8,22 +14,34 @@ interface Props {
     description: string;
 }
 
-const Section: React.FC<Props> = ({variant, title, description}) => {
-    return <Container className={variant}>
-        <HeaderWhapper>
-            <Header>
-                <h1>
-                    <DropBoxLogo/>
-                    <span>DropBox</span>
-                </h1>
-                <button>Interagir</button>
-            </Header>
-        </HeaderWhapper>
+const Section: React.FC<Props> = ({ variant, title, description }) => {
+    const buttonVariant = Math.round(Math.random());
 
-        <Content>
-            <h2>{title}</h2>
-            <p>{description}</p>
-        </Content>
-    </Container>
-}
+    function handleToggle() {
+        if (window.toggleActiveMenu) window.toggleActiveMenu();
+    }
+
+    return (
+        <Container className={variant}>
+            <HeaderWrapper>
+                <Header>
+                    <h1>
+                        <DropboxLogo />
+                        <span>Dropbox</span>
+                    </h1>
+
+                    <button onClick={handleToggle}>
+                        {buttonVariant === 0 ? 'Interagir' : 'Acessar'}
+                    </button>
+                </Header>
+            </HeaderWrapper>
+
+            <Content>
+                <h2>{title}</h2>
+                <p>{description}</p>
+            </Content>
+        </Container>
+    );
+};
+
 export default Section;
